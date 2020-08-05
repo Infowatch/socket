@@ -127,6 +127,8 @@ final class TcpServer extends EventEmitter implements ServerInterface
 
         // a single port has been given => assume localhost
         if ((string)(int)$uri === (string)$uri) {
+            // адрес локального хоста проставляется по-умолчанию, если задан только порт. не является паролем или криптографическим ключом
+            // appchecker CWE-798
             $uri = '127.0.0.1:' . $uri;
         }
 
